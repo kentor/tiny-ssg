@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ssg #build deletes a page when it is no longer in manifest 1`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "",
+  ],
+  Array [
+    "/public/about/index.html",
+    "",
+  ],
+]
+`;
+
+exports[`ssg #build deletes a page when it is no longer in manifest 2`] = `
+Array [
+  "/public/about/index.html",
+]
+`;
+
+exports[`ssg #build deletes a page when it is no longer in manifest 3`] = `
+Array [
+  Array [
+    "wrote",
+    "/",
+    0,
+  ],
+  Array [
+    "wrote",
+    "/about/",
+    0,
+  ],
+  Array [
+    "deleted",
+    "/about/",
+  ],
+]
+`;
+
+exports[`ssg #build does not write the same content twice 1`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "",
+  ],
+]
+`;
+
+exports[`ssg #build does not write the same content twice 2`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "",
+  ],
+]
+`;
+
+exports[`ssg #build updates a page when view function returns a new value 1`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "1",
+  ],
+]
+`;
+
+exports[`ssg #build updates a page when view function returns a new value 2`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "1",
+  ],
+  Array [
+    "/public/index.html",
+    "2",
+  ],
+]
+`;
+
+exports[`ssg #build warns when a page does not follow the expected shape 1`] = `
+Array [
+  Array [
+    "warn",
+    Object {
+      "url": "/missing-view/",
+    },
+    "should have shape",
+    "{ url: string, view: () => Promise<string> | string }",
+  ],
+  Array [
+    "warn",
+    Object {
+      "view": [Function],
+    },
+    "should have shape",
+    "{ url: string, view: () => Promise<string> | string }",
+  ],
+  Array [
+    "warn",
+    "something random",
+    "should have shape",
+    "{ url: string, view: () => Promise<string> | string }",
+  ],
+]
+`;
+
+exports[`ssg #build writes according to dest and manifest 1`] = `
+Array [
+  Object {
+    "data": "index page",
+    "outFile": "/public/index.html",
+    "url": "/",
+    "view": [Function],
+  },
+  Object {
+    "data": "about page",
+    "outFile": "/public/about/index.html",
+    "url": "/about/",
+    "view": [Function],
+  },
+  Object {
+    "data": "<?xml>feed</xml>",
+    "outFile": "/public/feed.xml",
+    "url": "/feed.xml",
+    "view": [Function],
+  },
+]
+`;
+
+exports[`ssg #build writes according to dest and manifest 2`] = `
+Array [
+  Array [
+    "/public/index.html",
+    "index page",
+  ],
+  Array [
+    "/public/about/index.html",
+    "about page",
+  ],
+  Array [
+    "/public/feed.xml",
+    "<?xml>feed</xml>",
+  ],
+]
+`;
+
+exports[`ssg #build writes according to dest and manifest 3`] = `
+Array [
+  Array [
+    "wrote",
+    "/",
+    10,
+  ],
+  Array [
+    "wrote",
+    "/about/",
+    10,
+  ],
+  Array [
+    "wrote",
+    "/feed.xml",
+    16,
+  ],
+]
+`;
