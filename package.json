@@ -1,6 +1,6 @@
 {
   "name": "tiny-ssg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An unopinionated static site generator with a tiny api",
   "main": "index.js",
   "scripts": {
