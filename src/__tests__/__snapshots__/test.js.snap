@@ -107,29 +107,6 @@ Array [
 
 exports[`ssg #build writes according to dest and manifest 1`] = `
 Array [
-  Object {
-    "data": "index page",
-    "outFile": "/public/index.html",
-    "url": "/",
-    "view": [Function],
-  },
-  Object {
-    "data": "about page",
-    "outFile": "/public/about/index.html",
-    "url": "/about/",
-    "view": [Function],
-  },
-  Object {
-    "data": "<?xml>feed</xml>",
-    "outFile": "/public/feed.xml",
-    "url": "/feed.xml",
-    "view": [Function],
-  },
-]
-`;
-
-exports[`ssg #build writes according to dest and manifest 2`] = `
-Array [
   Array [
     "/public/index.html",
     "index page",
@@ -145,7 +122,7 @@ Array [
 ]
 `;
 
-exports[`ssg #build writes according to dest and manifest 3`] = `
+exports[`ssg #build writes according to dest and manifest 2`] = `
 Array [
   Array [
     "wrote",

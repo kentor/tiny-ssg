@@ -59,9 +59,8 @@ describe('ssg', () => {
         { url: '/feed.xml', view: () => '<?xml>feed</xml>' },
       ]);
 
-      const results = await ssg.build();
+      await ssg.build();
 
-      expect(results).toMatchSnapshot();
       expect(writes).toMatchSnapshot();
       expect(withoutBuildTime(logs)).toMatchSnapshot();
     });

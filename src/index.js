@@ -65,7 +65,6 @@ class SSG {
         console.log(green('wrote'), page.url, data.length);
       }
 
-      page.data = data;
       return page;
     });
 
@@ -77,8 +76,6 @@ class SSG {
           await fs.remove(page.outFile);
           this.buildCache.delete(page.url);
           console.log(red('deleted'), page.url);
-
-          page.deleted = true;
           return page;
         });
     } else {
@@ -87,7 +84,9 @@ class SSG {
 
     this.prevManifest = manifest;
 
-    return Promise.all([...writes, ...deletes]);
+    await Promise.all([...writes, ...deletes]);
+
+    return;
   }
 
   async dryRun() {

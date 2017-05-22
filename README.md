@@ -46,7 +46,7 @@ the view would find useful.
 The `cb` arg to `manifest` should return a list or a Promise that resolves to a
 list of `Page` objects.
 
-## `ssg.build(): Promise<Page[]>`
+## `ssg.build(): Promise<void>`
 
 Executes the callback given in `manifest()` and builds the site according to the
 returned `Page` objects.
@@ -61,10 +61,6 @@ again and rebuild the site with these differences:
 
 - if the view of a url returns the same string, it will not write out
 - if a url is missing from the previous `manifest`, the page will be deleted
-
-The returned `Page` objects contain the same info as when they were returned
-from the manifest callback, plus a `data` property that contains the contents of
-the write out if it was written, and `deleted: true` if it was deleted.
 
 # trivial example
 
