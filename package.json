@@ -6,7 +6,8 @@
   "scripts": {
     "build": "babel src -d . --ignore test.js",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": "https://github.com/kentor/tiny-ssg",
   "author": "Kenneth Chung",

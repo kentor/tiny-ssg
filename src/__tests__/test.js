@@ -133,6 +133,16 @@ describe('ssg', () => {
       await ssg.build();
       expect(withoutBuildTime(logs)).toMatchSnapshot();
     });
+
+    it('warns when a url is encountered twice', async () => {
+      ssg.manifest(() => [
+        { url: '/test/', view: () => '1' },
+        { url: '/test/', view: () => '2' },
+      ]);
+      await ssg.build();
+      expect(withoutBuildTime(logs)).toMatchSnapshot();
+      expect(writes).toMatchSnapshot();
+    });
   });
 
   describe('#dryRun', () => {

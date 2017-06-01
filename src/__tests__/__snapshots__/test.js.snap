@@ -105,6 +105,29 @@ Array [
 ]
 `;
 
+exports[`ssg #build warns when a url is encountered twice 1`] = `
+Array [
+  Array [
+    "warn",
+    "duplicate entry found for /test/. skipping...",
+  ],
+  Array [
+    "wrote",
+    "/test/",
+    1,
+  ],
+]
+`;
+
+exports[`ssg #build warns when a url is encountered twice 2`] = `
+Array [
+  Array [
+    "/public/test/index.html",
+    "1",
+  ],
+]
+`;
+
 exports[`ssg #build writes according to dest and manifest 1`] = `
 Array [
   Array [

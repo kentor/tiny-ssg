@@ -31,21 +31,30 @@ class SSG {
 
   manifest(cb) {
     this.genManifest = async () => {
-      const pages = (await cb()).filter(page => {
-        if (typeof page.url !== 'string' || typeof page.view !== 'function') {
+      const map = new Map();
+      const pages = await cb();
+
+      pages.forEach(page => {
+        const { url, view } = page;
+
+        if (typeof url !== 'string' || typeof view !== 'function') {
           console.log(
             yellow('warn'),
             page,
             'should have shape',
             '{ url: string, view: () => Promise<string> | string }'
           );
-          return false;
+        } else if (map.has(url)) {
+          console.log(
+            yellow('warn'),
+            `duplicate entry found for ${url}. skipping...`,
+          );
+        } else {
+          map.set(url, { ...page, outFile: outFileFromUrl(url, this.dest) });
         }
-        return true;
       });
-      return new Map(pages.map(page =>
-        [page.url, { ...page, outFile: outFileFromUrl(page.url, this.dest) }]
-      ));
+
+      return map;
     };
   }
 
