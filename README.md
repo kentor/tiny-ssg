@@ -90,6 +90,7 @@ This will write to `Hello World!` to `public/index.html`.
 // watch.js
 const chokidar = require('chokidar');
 const invalidate = require('invalidate-module');
+const path = require('path');
 
 const watcher = chokidar.watch('*.js').on('all', (event, filename) => {
   invalidate(path.resolve(filename));
