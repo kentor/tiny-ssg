@@ -181,6 +181,6 @@ prevent parallel reads of the same resource.
 [a]: https://babeljs.io/docs/plugins/transform-async-to-generator/
 [c]: https://github.com/paulmillr/chokidar
 [f]: https://github.com/jprichardson/node-fs-extra
-[i]: https://yarnpkg.com/en/package/invalidate-module
+[i]: https://github.com/kentor/invalidate-module
 [m]: https://github.com/npm/marky-markdown
 [r]: https://github.com/elado/reuse-promise
