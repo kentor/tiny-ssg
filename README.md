@@ -17,11 +17,11 @@ working directory. It's probably easier to just use the next api instead.
 
 Returns a new `SSG` instance with defaults args. Possible to set the destination
 by setting `ssg.dest`. This is more friendly with watch mode and
-invalidate-module.
+[invalidate-module][i].
 
 ## `ssg.manifest(cb: () => Promise<Page[]> | Page[]): void`
 
-This is how you would specify the pages to be built.
+Specifies the pages to be built.
 
 `Page` has the type:
 
@@ -56,11 +56,12 @@ order of the writes. Views may be executed in parallel. For this reason, if your
 views depend on the same resource, you need to write code that is friendly with
 parallel access of resources. See the Recommended Utilities section.
 
-If `build()` is ran again in the same process, it will the manifest callback
-again and rebuild the site with these differences:
+If `build()` is ran again in the same process, it will rebuild the site with
+these differences:
 
-- if the view of a url returns the same string, it will not write out
-- if a url is missing from the previous `manifest`, the page will be deleted
+- if the view of a Page returns the same string, it will not write out
+- if a url is no longer returned since the previous manifest, the page will be
+  deleted from the destination directory
 
 # trivial example
 
